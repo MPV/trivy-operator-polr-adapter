@@ -1,21 +1,20 @@
-{{- if .Values.crds.install -}}
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.9.0
   creationTimestamp: null
-  name: policyreports.wgpolicyk8s.io
+  name: clusterpolicyreports.wgpolicyk8s.io
 spec:
   group: wgpolicyk8s.io
   names:
-    kind: PolicyReport
-    listKind: PolicyReportList
-    plural: policyreports
+    kind: ClusterPolicyReport
+    listKind: ClusterPolicyReportList
+    plural: clusterpolicyreports
     shortNames:
-    - polr
-    singular: policyreport
-  scope: Namespaced
+    - cpolr
+    singular: clusterpolicyreport
+  scope: Cluster
   versions:
   - additionalPrinterColumns:
     - jsonPath: .scope.kind
@@ -47,7 +46,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: PolicyReport is the Schema for the policyreports API
+        description: ClusterPolicyReport is the Schema for the clusterpolicyreports
+          API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -358,7 +358,8 @@ spec:
     name: v1alpha2
     schema:
       openAPIV3Schema:
-        description: PolicyReport is the Schema for the policyreports API
+        description: ClusterPolicyReport is the Schema for the clusterpolicyreports
+          API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -697,7 +698,8 @@ spec:
     name: v1beta1
     schema:
       openAPIV3Schema:
-        description: PolicyReport is the Schema for the policyreports API
+        description: ClusterPolicyReport is the Schema for the clusterpolicyreports
+          API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -1006,4 +1008,3 @@ spec:
     served: true
     storage: true
     subresources: {}
-{{- end -}}

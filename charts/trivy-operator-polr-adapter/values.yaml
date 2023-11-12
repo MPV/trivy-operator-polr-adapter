@@ -10,9 +10,6 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-crds:
-  install: false
-
 port:
   name: http
   number: 8080
